@@ -277,11 +277,9 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
                     >
                       <option value="Energía">Energía (Solar / Eólica / Hidro)</option>
                       <option value="Minería">Minería (Tajo / Subterránea / Planta)</option>
-                      <option value="Infraestructura">Infraestructura & Transportes</option>
                       <option value="Construcción">Construcción Civil</option>
                       <option value="Industria">Industria Manufacturera</option>
                       <option value="Hidrocarburos">Hidrocarburos</option>
-                      <option value="Agroindustria">Agroindustria</option>
                       <option value="Sector Público">Sector Público / Proyectos Especiales</option>
                     </select>
                   </div>

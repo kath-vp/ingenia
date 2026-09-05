@@ -22,6 +22,9 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post, onReadPost }) => {
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
             loading="lazy"
             referrerPolicy="no-referrer"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = '/images/estudios_ambientales_peru.jpg';
+            }}
           />
           <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-[#304338] border border-white/40 shadow-2xs">
             {post.category}

@@ -265,10 +265,10 @@ export const ServiceFinder: React.FC<ServiceFinderProps> = ({ onOpenQuote, initi
             ¿A qué sector productivo pertenece?
           </h3>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
             {[
-              'Energía', 'Minería', 'Infraestructura', 'Construcción',
-              'Industria', 'Hidrocarburos', 'Agroindustria', 'Sector Público'
+              'Energía', 'Minería', 'Construcción',
+              'Industria', 'Hidrocarburos', 'Sector Público'
             ].map((sector) => (
               <button
                 key={sector}

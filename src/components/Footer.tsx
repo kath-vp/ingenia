@@ -122,10 +122,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote }) => {
             <ul className="space-y-2 text-xs sm:text-sm text-[#81958A]">
               <li><a href="#sectores" className="hover:text-white transition-colors block">Energía & Renovables</a></li>
               <li><a href="#sectores" className="hover:text-white transition-colors block">Minería & Exploración</a></li>
-              <li><a href="#sectores" className="hover:text-white transition-colors block">Infraestructura Vial</a></li>
-              <li><a href="#sectores" className="hover:text-white transition-colors block">Industria & Manufactura</a></li>
               <li><a href="#sectores" className="hover:text-white transition-colors block">Construcción & Obras</a></li>
-              <li><a href="#blog" className="hover:text-white transition-colors block">Artículos Técnicos</a></li>
+              <li><a href="#sectores" className="hover:text-white transition-colors block">Industria & Manufactura</a></li>
+              <li><a href="#sectores" className="hover:text-white transition-colors block">Hidrocarburos</a></li>
+              <li><a href="#sectores" className="hover:text-white transition-colors block">Sector Público</a></li>
             </ul>
           </div>
 

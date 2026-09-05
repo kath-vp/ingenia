@@ -71,7 +71,12 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: "MONITOREO BIOLÓGICO",
     shortDescription: "Caracterización de biodiversidad en flora y fauna silvestre para la conservación y cumplimiento de compromisos ambientales.",
     fullDescription: "Diseñamos e implementamos inventarios y monitoreos biológicos estacionales (época húmeda y época seca) en ecosistemas terrestres y acuáticos, registrando especies endémicas, protegidas o bajo categoría de amenaza.",
-    image: "/images/peru_biodiversidad_monitoreo.jpg", // Biodiversidad andina peruana (vicuña y flora nativa de puna)
+    image: "/images/gallito_de_las_rocas_peru.jpg",
+    secondaryImage: "/images/orquideas_peru_flora.jpg",
+    imageLabels: {
+      primary: "Gallito de las Rocas",
+      secondary: "Orquídea Peruana"
+    },
     iconName: "Trees",
     subservices: [
       "Flora y vegetación (transectos, parcelas de evaluación, cactáceas, orquídeas)",
@@ -236,20 +241,11 @@ export const SECTORS_DATA: SectorItem[] = [
     regulations: "Reglamento de Protección y Gestión Ambiental para Exploración (D.S. 042-2017-EM) y Explotación (D.S. 040-2014-EM)."
   },
   {
-    id: "infraestructura",
-    name: "INFRAESTRUCTURA",
-    slug: "infraestructura",
-    description: "Carreteras nacionales, vías expresas, puentes, puertos, aeropuertos y proyectos de saneamiento urbano y rural.",
-    image: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=800&q=80", // Modern road bridge infrastructure in mountains
-    keyServices: ["EIA-sd e Informes Técnicos Sustentatorios (ITS)", "Monitoreo de calidad de aire y ruido por movimiento de tierras", "Planes de compensación y rescate de flora"],
-    regulations: "Reglamento de Protección Ambiental para el Sector Transportes (D.S. 004-2017-MTC)."
-  },
-  {
     id: "construccion",
     name: "CONSTRUCCIÓN",
     slug: "construccion",
     description: "Obras civiles de gran envergadura, complejos comerciales, urbanizaciones y edificaciones sostenibles.",
-    image: "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=800&q=80", // Construction engineering site
+    image: "/images/sector_construccion.jpg", // Modern construction engineering site in Peru
     keyServices: ["Planes de Manejo Ambiental de obra", "Monitoreo sonométrico y control de emisiones", "Monitoreo ocupacional de ruido y polvo para cuadrillas"],
     regulations: "Reglamento de Protección Ambiental en el Sector Vivienda, Construcción y Saneamiento (D.S. 015-2012-VIVIENDA)."
   },
@@ -258,7 +254,7 @@ export const SECTORS_DATA: SectorItem[] = [
     name: "INDUSTRIA",
     slug: "industria",
     description: "Plantas de manufactura, siderurgia, procesamiento de alimentos, bebidas, química y bienes intermedios.",
-    image: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80", // Industrial plant engineering
+    image: "/images/sector_industria.jpg", // Industrial plant and manufacturing facility
     keyServices: ["Diagnóstico Ambiental Preliminar (DAP) y DIA", "Monitoreo de efluentes industriales y emisiones de chimenea", "Evaluación integral de ergonomía y agentes químicos"],
     regulations: "Reglamento de Gestión Ambiental para la Industria Manufacturera y Comercio Interno (D.S. 017-2015-PRODUCE)."
   },
@@ -270,15 +266,6 @@ export const SECTORS_DATA: SectorItem[] = [
     image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80", // Energy pipeline infrastructure
     keyServices: ["Informes Técnicos Sustentatorios (ITS) para modificaciones", "Monitoreo de hidrocarburos en agua y suelo (TPH, BTEX)", "Planes de abandono y contingencias"],
     regulations: "Reglamento para la Protección Ambiental en las Actividades de Hidrocarburos (D.S. 039-2014-EM)."
-  },
-  {
-    id: "agroindustria",
-    name: "AGROINDUSTRIA",
-    slug: "agroindustria",
-    description: "Campos de cultivo de exportación, plantas de empaque (packing), procesamiento avícola y ganadero.",
-    image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80", // Modern agricultural landscape
-    keyServices: ["Instrumentos de gestión ambiental sectorial", "Monitoreo de agua de pozo, suelo agrícola y residuos agroquímicos", "Estudios biológicos de conectividad ecológica"],
-    regulations: "Reglamento de Gestión Ambiental del Sector Agrario y de Riego (D.S. 019-2012-AG)."
   },
   {
     id: "sector-publico",
@@ -300,7 +287,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     service: "Monitoreo Ambiental",
     year: "2025",
     description: "Campaña estacional integral de monitoreo de partículas en suspensión (PM10 y PM2.5) y niveles de presión sonora diurna y nocturna en el área de influencia directa e indirecta del parque eólico.",
-    image: "/images/estudios_ambientales_peru.jpg",
+    image: "/images/monitoreo_aire_desierto.jpg",
     metrics: [
       { label: "Estaciones evaluadas", value: "12 puntos" },
       { label: "Cumplimiento normativo", value: "100% ECA" },
@@ -316,7 +303,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     service: "Monitoreo Biológico",
     year: "2025",
     description: "Evaluación de comunidades de aves altoandinas, micromamíferos y formaciones vegetales de bofedal en época húmeda y seca para la actualización del Plan de Manejo Ambiental ante Senace.",
-    image: "/images/peru_biodiversidad_monitoreo.jpg",
+    image: "/images/vizcacha_andina.jpg",
     metrics: [
       { label: "Transectos de flora", value: "24 transectos" },
       { label: "Cámaras trampa", value: "18 unidades" },
@@ -380,7 +367,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     service: "Estudios Ambientales",
     year: "2025",
     description: "Elaboración integral del instrumento de gestión ambiental que incluyó línea base física, biológica y social, plan de contingencias y talleres participativos presenciales.",
-    image: "https://images.unsplash.com/photo-1508873696983-2df5293cb32f?auto=format&fit=crop&w=800&q=80",
+    image: "/images/solar_fotovoltaica.jpg",
     metrics: [
       { label: "Área de concesión", value: "140 hectáreas" },
       { label: "Capacidad proyectada", value: "80 MW" },
@@ -541,7 +528,7 @@ export const BLOG_POSTS: BlogPost[] = [
       name: "Ing. Mariana Paredes",
       role: "Especialista en Higiene y Ergonomía Industrial"
     },
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    image: "/images/monitoreo_ocupacional_higiene.jpg",
     tags: ["Higiene Ocupacional", "Ergonomía", "SUNAFIL", "Salud en el Trabajo"]
   }
 ];

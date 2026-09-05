@@ -12,6 +12,8 @@ export interface ServiceItem {
   shortDescription: string;
   fullDescription: string;
   image: string;
+  secondaryImage?: string;
+  imageLabels?: { primary: string; secondary: string };
   iconName: string;
   subservices: string[];
   parametersSample: string[];

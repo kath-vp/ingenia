@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { X, Search, ArrowRight, CheckCircle2, FileText, Activity, ShieldCheck, MapPin, ExternalLink } from 'lucide-react';
+import { X, Search, ArrowRight, CheckCircle2, FileText, Activity, ShieldCheck, MapPin, ExternalLink, ChevronRight, Info } from 'lucide-react';
 import { ServiceItem, SectorItem, BlogPost, EnvironmentalStudyInstrument } from '../types';
 import { SERVICES_DATA, SECTORS_DATA, BLOG_POSTS, ENVIRONMENTAL_INSTRUMENTS } from '../data/environmentalData';
 
@@ -232,23 +232,65 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
   onClose,
   onOpenQuote
 }) => {
+  const [selectedInstrument, setSelectedInstrument] = useState<EnvironmentalStudyInstrument>(
+    ENVIRONMENTAL_INSTRUMENTS[1] // Default DIA
+  );
+
   if (!service) return null;
+
+  const isEstudiosAmbientales = service.id === 'estudios-ambientales' || service.number === '04' || service.title.toLowerCase().includes('estudios ambientales');
 
   return (
     <div className="fixed inset-0 z-50 bg-[#17251D]/70 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-in fade-in duration-200">
       <div 
-        className="bg-[#FFFFFF] rounded-3xl w-full max-w-3xl border border-[#E1E2DD] shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
+        className={`bg-[#FFFFFF] rounded-3xl w-full ${isEstudiosAmbientales ? 'max-w-5xl' : 'max-w-3xl'} border border-[#E1E2DD] shadow-2xl overflow-hidden max-h-[90vh] flex flex-col transition-all duration-300`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header with image banner */}
-        <div className="relative h-44 sm:h-52 bg-[#304338] shrink-0">
-          <img
-            src={service.image}
-            alt={service.title}
-            className="w-full h-full object-cover opacity-40"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#17251D] via-transparent to-black/20" />
+        <div className="relative h-44 sm:h-52 bg-[#304338] shrink-0 overflow-hidden">
+          {service.secondaryImage ? (
+            <div className="grid grid-cols-2 w-full h-full">
+              <div className="relative h-full overflow-hidden border-r border-white/20">
+                <img
+                  src={service.image}
+                  alt={service.imageLabels?.primary || service.title}
+                  className="w-full h-full object-cover opacity-50"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/images/estudios_ambientales_peru.jpg';
+                  }}
+                />
+                <span className="absolute bottom-3 left-6 text-[11px] font-semibold text-white/90 bg-black/40 px-2.5 py-0.5 rounded-full backdrop-blur-xs border border-white/20">
+                  {service.imageLabels?.primary || "Gallito de las Rocas"}
+                </span>
+              </div>
+              <div className="relative h-full overflow-hidden">
+                <img
+                  src={service.secondaryImage}
+                  alt={service.imageLabels?.secondary || service.title}
+                  className="w-full h-full object-cover opacity-50"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/images/estudios_ambientales_peru.jpg';
+                  }}
+                />
+                <span className="absolute bottom-3 right-6 text-[11px] font-semibold text-white/90 bg-black/40 px-2.5 py-0.5 rounded-full backdrop-blur-xs border border-white/20">
+                  {service.imageLabels?.secondary || "Orquídea Peruana"}
+                </span>
+              </div>
+            </div>
+          ) : (
+            <img
+              src={service.image}
+              alt={service.title}
+              className="w-full h-full object-cover opacity-40"
+              referrerPolicy="no-referrer"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = '/images/estudios_ambientales_peru.jpg';
+              }}
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#17251D] via-black/40 to-black/20 pointer-events-none" />
 
           <button
             onClick={onClose}
@@ -269,51 +311,164 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
 
         {/* Modal Scrollable Body */}
         <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#81958A] mb-2">
-              Descripción General
-            </h4>
-            <p className="text-sm text-[#59635D] leading-relaxed">
-              {service.fullDescription}
-            </p>
-          </div>
+          {/* ========================================================================= */}
+          {/* IF ESTUDIOS AMBIENTALES: Pipeline SEIA Interactivo Completo */}
+          {/* ========================================================================= */}
+          {isEstudiosAmbientales ? (
+            <div className="space-y-6">
+              {/* Marco SEIA Header Block */}
+              <div className="bg-[#F9F8F6] rounded-3xl p-5 sm:p-8 border border-[#E1E2DD]">
+                <div className="max-w-[780px] mx-auto text-center mb-8">
+                  <h4 className="text-2xl sm:text-3xl font-bold text-[#171D18] tracking-tight mb-2">
+                    De la evaluación ambiental a la viabilidad del proyecto
+                  </h4>
 
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#304338] mb-3">
-              Alcances y Componentes Específicos
-            </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              {service.subservices.map((sub, i) => (
-                <div key={i} className="bg-[#F9F8F6] p-3 rounded-xl border border-[#E1E2DD] flex items-start gap-2 text-xs sm:text-[13px] text-[#171D18]">
-                  <CheckCircle2 className="w-4 h-4 text-[#6E8B72] shrink-0 mt-0.5" />
-                  <span>{sub}</span>
+                  <p className="text-xs sm:text-sm text-[#59635D] leading-relaxed">
+                    Estructuramos y tramitamos el instrumento de gestión ambiental adecuado ante Senace y ministerios sectoriales (Minem, Produce, MTC, Minam, Vivienda).
+                  </p>
+
+                  <div className="mt-3.5 inline-flex items-center gap-2 bg-[#ECEBE7] text-[#536A5D] px-4 py-1.5 rounded-full text-xs">
+                    <Info className="w-3.5 h-3.5 text-[#E99A35] shrink-0" />
+                    <span>Nota técnica: La exigibilidad de cada instrumento depende de la clasificación de riesgo, sector y envergadura de cada proyecto.</span>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
 
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#304338] mb-3">
-              Equipamiento e Instrumentación Técnica
-            </h4>
-            <div className="space-y-2">
-              {service.parametersSample.map((param, i) => (
-                <div key={i} className="text-xs text-[#59635D] flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#E99A35]" />
-                  <span>{param}</span>
+                {/* Visual Pipeline Flow Buttons */}
+                <div className="mb-6 overflow-x-auto pb-2">
+                  <div className="flex items-center min-w-[700px] justify-between gap-2 px-1">
+                    {ENVIRONMENTAL_INSTRUMENTS.map((inst, index) => {
+                      const isSelected = selectedInstrument.id === inst.id;
+                      return (
+                        <React.Fragment key={inst.id}>
+                          <button
+                            type="button"
+                            onClick={() => setSelectedInstrument(inst)}
+                            className={`px-3.5 py-2.5 rounded-2xl border text-center transition-all cursor-pointer flex-1 ${
+                              isSelected
+                                ? 'bg-[#304338] text-white border-[#17251D] shadow-md scale-105'
+                                : 'bg-[#FFFFFF] text-[#171D18] border-[#E1E2DD] hover:border-[#81958A]'
+                            }`}
+                          >
+                            <span className="text-[10px] uppercase font-bold tracking-wider block opacity-75">
+                              {inst.category}
+                            </span>
+                            <span className="text-xs sm:text-sm font-extrabold tracking-tight block mt-0.5">
+                              {inst.code}
+                            </span>
+                          </button>
+
+                          {index < ENVIRONMENTAL_INSTRUMENTS.length - 1 && (
+                            <ChevronRight className="w-4 h-4 text-[#81958A] shrink-0" />
+                          )}
+                        </React.Fragment>
+                      );
+                    })}
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
 
-          <div className="bg-[#ECEBE7] p-4 rounded-2xl">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#304338] block mb-1">
-              Marco Normativo de Referencia
-            </span>
-            <p className="text-xs text-[#59635D]">
-              {service.normativaReferencia}
-            </p>
-          </div>
+                {/* Selected Instrument Detail Card */}
+                <div className="bg-[#FFFFFF] rounded-2xl p-5 sm:p-6 border border-[#E1E2DD] shadow-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 pb-3.5 border-b border-[#ECEBE7]">
+                    <div>
+                      <span className="text-[11px] font-bold text-[#E99A35] uppercase tracking-wider">
+                        {selectedInstrument.level}
+                      </span>
+                      <h5 className="text-lg sm:text-xl font-bold text-[#171D18]">
+                        {selectedInstrument.code} — {selectedInstrument.name}
+                      </h5>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onClose();
+                        onOpenQuote(`Estudio Ambiental: ${selectedInstrument.code} (${selectedInstrument.name})`);
+                      }}
+                      className="bg-[#E99A35] hover:bg-[#D98220] text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors shrink-0 cursor-pointer shadow-xs"
+                    >
+                      Cotizar este instrumento
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs sm:text-sm">
+                    <div>
+                      <span className="text-[#81958A] font-semibold block uppercase tracking-wider text-[11px] mb-1">
+                        Finalidad Principal
+                      </span>
+                      <p className="text-[#171D18] leading-relaxed">
+                        {selectedInstrument.purpose}
+                      </p>
+                    </div>
+
+                    <div>
+                      <span className="text-[#81958A] font-semibold block uppercase tracking-wider text-[11px] mb-1">
+                        Aplicabilidad Habitual
+                      </span>
+                      <p className="text-[#171D18] leading-relaxed">
+                        {selectedInstrument.applicability}
+                      </p>
+                    </div>
+
+                    <div>
+                      <span className="text-[#81958A] font-semibold block uppercase tracking-wider text-[11px] mb-1">
+                        Autoridad Evaluadora Típica
+                      </span>
+                      <p className="text-[#304338] font-medium leading-relaxed">
+                        {selectedInstrument.typicalAuthority}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <>
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#81958A] mb-2">
+                  Descripción General
+                </h4>
+                <p className="text-sm text-[#59635D] leading-relaxed">
+                  {service.fullDescription}
+                </p>
+              </div>
+
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#304338] mb-3">
+                  Alcances y Componentes Específicos
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {service.subservices.map((sub, i) => (
+                    <div key={i} className="bg-[#F9F8F6] p-3 rounded-xl border border-[#E1E2DD] flex items-start gap-2 text-xs sm:text-[13px] text-[#171D18]">
+                      <CheckCircle2 className="w-4 h-4 text-[#6E8B72] shrink-0 mt-0.5" />
+                      <span>{sub}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#304338] mb-3">
+                  Equipamiento e Instrumentación Técnica
+                </h4>
+                <div className="space-y-2">
+                  {service.parametersSample.map((param, i) => (
+                    <div key={i} className="text-xs text-[#59635D] flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#E99A35]" />
+                      <span>{param}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-[#ECEBE7] p-4 rounded-2xl">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#304338] block mb-1">
+                  Marco Normativo de Referencia
+                </span>
+                <p className="text-xs text-[#59635D]">
+                  {service.normativaReferencia}
+                </p>
+              </div>
+            </>
+          )}
         </div>
 
         {/* Footer actions */}

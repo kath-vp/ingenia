@@ -1,13 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { SearchBar } from './components/SearchBar';
 import { TrustCards } from './components/TrustCards';
 import { ServiceCard } from './components/ServiceCard';
 import { ProcessTimeline } from './components/ProcessTimeline';
 import { SectorCard } from './components/SectorCard';
 import { ProjectCard } from './components/ProjectCard';
-import { SpotlightSections } from './sections/SpotlightSections';
 import { ServiceFinder } from './components/ServiceFinder';
 import { BlogCard } from './components/BlogCard';
 import { CTASection } from './components/CTASection';
@@ -70,17 +68,6 @@ export default function App() {
     serviceFinderRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleSearchSubmit = (params: { servicio: string; region: string; plazo: string }) => {
-    // Map service to finder need
-    let need = 'monitorear-componente';
-    if (params.servicio === 'monitoreo-biologico') need = 'evaluar-biodiversidad';
-    if (params.servicio === 'monitoreos-ocupacionales') need = 'evaluar-ocupacional';
-    if (params.servicio === 'estudios-ambientales') need = 'desarrollar-instrumento';
-    
-    setServiceFinderNeed(need);
-    serviceFinderRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   // Filtered projects
   const filteredProjects = projectSectorFilter === 'Todos'
     ? PROJECTS_DATA
@@ -107,13 +94,13 @@ export default function App() {
           onScrollToServices={handleScrollToServices}
         />
 
-        {/* 2. Interactive Search Bar */}
-        <SearchBar onSearchSubmit={handleSearchSubmit} />
-
-        {/* 3. Bloque de Confianza (Trust indicators) */}
+        {/* 2. Bloque de Confianza (Trust indicators) */}
         <TrustCards />
 
-        {/* 4. Main Services Section */}
+        {/* 4. Metodología Científica: "Del dato a la decisión" */}
+        <ProcessTimeline />
+
+        {/* 5. Main Services Section - Líneas de Especialización */}
         <section id="servicios" ref={servicesRef} className="py-20 sm:py-28 bg-[#F9F8F6] relative">
           <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-[760px] mx-auto text-center mb-14">
@@ -145,15 +132,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* 5. Process Timeline: "Del dato a la decisión" */}
-        <ProcessTimeline />
-
-        {/* 6. Spotlight Deep-Dive Sections (01 Monitoreo Ambiental, 02 Biológico, 03 Ocupacional, 04 Estudios) */}
-        <div className="py-20 sm:py-28 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
-          <SpotlightSections onOpenQuote={handleOpenQuote} />
-        </div>
-
-        {/* 7. Sectores Section */}
+        {/* 6. Sectores Section */}
         <section id="sectores" className="py-20 sm:py-28 bg-[#ECEBE7]/60 relative overflow-hidden">
           <div className="absolute inset-0 pointer-events-none opacity-30">
             <TopographicCurves className="w-full h-full text-[#81958A]/30" />
@@ -175,8 +154,8 @@ export default function App() {
               </p>
             </div>
 
-            {/* 8 Sectors Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6">
+            {/* 6 Sectors Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
               {SECTORS_DATA.map((sector) => (
                 <SectorCard
                   key={sector.id}

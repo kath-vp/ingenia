@@ -15,7 +15,7 @@ export const ProcessTimeline: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-[#ECEBE7] relative overflow-hidden">
+    <section id="metodologia" className="py-20 sm:py-28 bg-[#ECEBE7] relative overflow-hidden">
       {/* Subtle topographic background */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
         <TopographicCurves className="w-full h-full text-[#81958A]/30" />
