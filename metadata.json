@@ -1,0 +1,6 @@
+{
+  "name": "INGENIA Consultores Ambientales",
+  "description": "Página web corporativa premium de INGENIA Consultores Ambientales. Soluciones de monitoreo ambiental, biológico, ocupacional y estudios ambientales en el Perú.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" fill="none">
+  <!-- INGENIA Consultores Ambientales - Official Vector Logo -->
+  
+  <!-- ISOTIPO -->
+  <g id="isotipo">
+    <!-- Columna angular izquierda (Verde Oscuro Ingeniería) -->
+    <polygon 
+      points="14,24 46,8 46,86 14,86" 
+      fill="#0E382A" 
+    />
+    
+    <!-- Elemento orgánico curvo con muesca circular (Verde Esmeralda Ambiental) -->
+    <path 
+      d="M 46 28 C 76 28, 96 42, 96 57 C 96 72, 76 86, 46 86 L 46 68 A 12 12 0 0 0 46 44 L 46 28 Z" 
+      fill="#008A52" 
+    />
+    
+    <!-- Punto de precisión técnico -->
+    <circle cx="30" cy="98" r="5.5" fill="#008A52" />
+    
+    <!-- Barra horizontal de base técnica -->
+    <rect x="52" y="95.25" width="36" height="5.5" rx="2.75" fill="#008A52" />
+  </g>
+
+  <!-- LOGOTIPO / TEXTO -->
+  <g id="logotipo">
+    <!-- INGENIA -->
+    <text 
+      x="128" 
+      y="62" 
+      fill="#0E382A" 
+      font-family="'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" 
+      font-weight="900" 
+      font-size="52" 
+      letter-spacing="0.03em"
+    >INGENIA</text>
+    
+    <!-- CONSULTORES AMBIENTALES -->
+    <text 
+      x="129" 
+      y="88" 
+      fill="#008A52" 
+      font-family="'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" 
+      font-weight="800" 
+      font-size="15" 
+      letter-spacing="0.32em"
+    >CONSULTORES AMBIENTALES</text>
+    
+    <!-- Línea sutil de base -->
+    <line 
+      x1="128" 
+      y1="99" 
+      x2="505" 
+      y2="99" 
+      stroke="#D5DED9" 
+      stroke-width="1.5" 
+    />
+  </g>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 110" fill="none">
+  <!-- INGENIA Consultores Ambientales - Official Icon Mark -->
+  <!-- Columna angular izquierda (Verde Oscuro Ingeniería) -->
+  <polygon 
+    points="14,24 46,8 46,86 14,86" 
+    fill="#0E382A" 
+  />
+  
+  <!-- Elemento orgánico curvo con muesca circular (Verde Esmeralda Ambiental) -->
+  <path 
+    d="M 46 28 C 76 28, 96 42, 96 57 C 96 72, 76 86, 46 86 L 46 68 A 12 12 0 0 0 46 44 L 46 28 Z" 
+    fill="#008A52" 
+  />
+  
+  <!-- Punto de precisión técnico -->
+  <circle cx="30" cy="98" r="5.5" fill="#008A52" />
+  
+  <!-- Barra horizontal de base técnica -->
+  <rect x="52" y="95.25" width="36" height="5.5" rx="2.75" fill="#008A52" />
+</svg>
