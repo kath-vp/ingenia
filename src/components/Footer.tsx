@@ -8,7 +8,6 @@ import {
   YOUTUBE_URL, 
   EMAIL, 
   PHONE, 
-  ADDRESS, 
   REGIONAL_OFFICE,
   COMPANY_NAME 
 } from '../config';
@@ -137,10 +136,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote }) => {
             <div className="space-y-3 text-xs sm:text-sm text-[#81958A]">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#E99A35] shrink-0 mt-0.5" />
-                <span>{ADDRESS}</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#81958A] shrink-0 mt-0.5" />
                 <span>{REGIONAL_OFFICE}</span>
               </div>
               <div className="flex items-center gap-2">
@@ -166,7 +161,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote }) => {
 
         {/* Bottom copyright and back-to-top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#81958A]">
-          <p>© {new Date().getFullYear()} {COMPANY_NAME}. Todos los derechos reservados.</p>
+          <p>
+            <span>© {new Date().getFullYear()} {COMPANY_NAME}. Todos los derechos reservados.</span>
+            <span className="block text-[#81958A] mt-1 font-medium">Casa Gryphos - KVP</span>
+          </p>
           
           <div className="flex items-center gap-6">
             <span>Cumplimiento normativo SEIA · SENACE · OEFA · SUNAFIL</span>

@@ -472,23 +472,12 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
         </div>
 
         {/* Footer actions */}
-        <div className="p-4 sm:p-6 border-t border-[#ECEBE7] bg-[#F9F8F6] flex items-center justify-between shrink-0">
+        <div className="p-4 sm:p-6 border-t border-[#ECEBE7] bg-[#F9F8F6] flex items-center justify-end shrink-0">
           <button
             onClick={onClose}
-            className="text-xs font-semibold text-[#59635D] hover:text-[#171D18]"
+            className="text-xs font-semibold text-[#59635D] hover:text-[#171D18] px-4 py-2 rounded-full hover:bg-[#ECEBE7] transition-colors cursor-pointer"
           >
             Cerrar
-          </button>
-
-          <button
-            onClick={() => {
-              onClose();
-              onOpenQuote(service.title);
-            }}
-            className="bg-[#E99A35] hover:bg-[#D98220] text-white text-xs sm:text-sm font-semibold px-6 py-2.5 rounded-full transition-colors flex items-center gap-2 shadow-md cursor-pointer"
-          >
-            <span>Solicitar cotización de este servicio</span>
-            <ArrowRight className="w-4 h-4" />
           </button>
         </div>
       </div>

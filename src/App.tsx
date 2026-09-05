@@ -97,16 +97,13 @@ export default function App() {
         {/* 2. Bloque de Confianza (Trust indicators) */}
         <TrustCards />
 
-        {/* 4. Metodología Científica: "Del dato a la decisión" */}
-        <ProcessTimeline />
-
-        {/* 5. Main Services Section - Líneas de Especialización */}
+        {/* 3. Main Services Section - Líneas de Investigación */}
         <section id="servicios" ref={servicesRef} className="py-20 sm:py-28 bg-[#F9F8F6] relative">
           <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-[760px] mx-auto text-center mb-14">
               <div className="inline-flex items-center gap-2 bg-[#FFFFFF] px-3.5 py-1 rounded-full border border-[#E1E2DD] text-xs font-bold text-[#304338] uppercase tracking-wider mb-4 shadow-2xs">
                 <span className="w-2 h-2 rounded-full bg-[#E99A35]" />
-                Líneas de Especialización
+                Líneas de Investigación
               </div>
 
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#171D18] tracking-tight mb-4">
@@ -132,8 +129,11 @@ export default function App() {
           </div>
         </section>
 
-        {/* 6. Sectores Section */}
-        <section id="sectores" className="py-20 sm:py-28 bg-[#ECEBE7]/60 relative overflow-hidden">
+        {/* 4. Metodología Científica: "Del dato a la decisión" */}
+        <ProcessTimeline />
+
+        {/* 5. Sectores Section */}
+        <section id="sectores" className="py-20 sm:py-28 bg-[#F9F8F6] relative overflow-hidden">
           <div className="absolute inset-0 pointer-events-none opacity-30">
             <TopographicCurves className="w-full h-full text-[#81958A]/30" />
           </div>

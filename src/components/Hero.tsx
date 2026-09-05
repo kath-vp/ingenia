@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Compass, Shield, Award } from 'lucide-react';
+import { Compass, Shield, Award } from 'lucide-react';
 import { TopographicCurves, MistiVolcanoSilhouette } from './Decorations';
 
 interface HeroProps {
@@ -7,7 +7,7 @@ interface HeroProps {
   onScrollToServices: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenQuote, onScrollToServices }) => {
+export const Hero: React.FC<HeroProps> = ({ onScrollToServices }) => {
   return (
     <section id="inicio" className="pt-8 sm:pt-10 pb-14 sm:pb-20 relative overflow-hidden bg-[#F9F8F6]">
       {/* Background subtle topographic contours */}
@@ -60,15 +60,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuote, onScrollToServices }) =
 
                 {/* Buttons */}
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-                  <button
-                    id="hero-cta-quote"
-                    onClick={onOpenQuote}
-                    className="bg-[#E99A35] hover:bg-[#D98220] text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-lg shadow-[#304338]/20 hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer"
-                  >
-                    <span>Solicitar cotización</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-
                   <button
                     id="hero-cta-services"
                     onClick={onScrollToServices}

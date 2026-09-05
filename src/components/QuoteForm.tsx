@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Send, CheckCircle2, ShieldCheck, Mail, Phone, MapPin } from 'lucide-react';
 import { QuoteFormData } from '../types';
-import { EMAIL, PHONE, PHONE_MOBILE, ADDRESS, REGIONAL_OFFICE } from '../config';
+import { EMAIL, PHONE, PHONE_MOBILE, REGIONAL_OFFICE } from '../config';
 
 interface QuoteFormProps {
   initialService?: string;
@@ -117,15 +117,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
                   <div className="flex items-start gap-3">
                     <MapPin className="w-4 h-4 text-[#E99A35] shrink-0 mt-1" />
                     <div>
-                      <strong className="text-[#171D18] block">Sede Central:</strong>
-                      <span>{ADDRESS}</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-[#81958A] shrink-0 mt-1" />
-                    <div>
-                      <strong className="text-[#171D18] block">Sede Sur:</strong>
+                      <strong className="text-[#171D18] block">Oficina / Sede:</strong>
                       <span>{REGIONAL_OFFICE}</span>
                     </div>
                   </div>
